@@ -8,15 +8,16 @@ class Profile(models.Model):
     GENDER_CHOICES = [
     ('male', 'Male'),
     ('female', 'Female'),
-    ('other', 'Other'),]
+    ('other', 'Other'),
+    ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True)
+    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
     bio = models.TextField(blank=True)
-    phone_number = models.CharField(max_length=20, blank=True)
+    phone_number = models.CharField(max_length=20, blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=10, blank=True, choices=GENDER_CHOICES)
-    address = models.TextField(max_length=255, blank=True)
+    address = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
