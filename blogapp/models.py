@@ -97,6 +97,7 @@ class UserPermission(models.Model):
 
     class Meta:
         db_table = "user_permission"
+        
 
     def __str__(self):
-        return str(self.post)
+        return str(self.post) 
